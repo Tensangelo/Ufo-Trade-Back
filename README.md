@@ -20,6 +20,6 @@ La autenticación se realiza mediante **JWT + Cookies**.
 
 ## ⚙️ Instalación y configuración
 
--- **Instala dependencias
--- **Ajusta tus variables de entorno en un archivo .env
--- ** Ejecuta en desarrollo con __npm run dev__
+- Instala dependencias
+- Ajusta tus variables de entorno en un archivo .env
+- Ejecuta en desarrollo con __npm run dev__
