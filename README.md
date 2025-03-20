@@ -7,9 +7,10 @@ Este es el backend de **UFO-Trade**, una plataforma de gestión de usuarios. Con
 - **Node.js + Express.js** - Framework backend  
 - **TypeScript** - Tipado estático para JavaScript  
 - **JWT** - Autenticación basada en tokens  
-- **Cookies** - Manejo de sesiones  
+- **Cookies con cookie-parser** - Manejo de sesiones  
 - **PostgreSQL** - Almacenamiento de datos  
-- **Sequelize / Prisma** - Manipulación de la base de datos (especificar cuál usaste)  
+- **Sequelize** - Manipulación de la base de datos (especificar cuál usaste)
+- **CORS** - Configuración de políticas de acceso
 
 ## 🔒 Autenticación
 
