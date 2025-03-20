@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ES6",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "dist",
+        "baseUrl": "./src",
+        "paths": {
+            "@config/*": ["config/*"],
+            "@constants/*": ["constants/*"],
+            "@models/*": ["models/*"],
+            "@controllers/*": ["controllers/*"],
+            "@routes/*": ["routes/*"],
+            "@middlewares/*": ["middlewares/*"],
+            "@utils/*": ["utils/*"],
+        }
+    }
+}
