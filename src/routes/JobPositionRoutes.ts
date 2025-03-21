@@ -7,9 +7,7 @@ import { Roles } from "@constants/Role";
 
 const router = Router();
 
-const { ADMIN, DEVELOPER, MANAGER, SALES_PERSON } = Roles;
-
 // Get
-router.get("/", checkRole([ADMIN, DEVELOPER, MANAGER, SALES_PERSON]), getAllJobPositions);
+router.get("/", checkRole(Object.values(Roles).filter((role) => typeof role === "number") as number[]), getAllJobPositions);
 
 export default router;

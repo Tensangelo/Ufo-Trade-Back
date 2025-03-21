@@ -182,7 +182,7 @@ export const updateEmployer = async (req: Request, res: Response, next: NextFunc
 
         const users = await User.findAll({ where: { employerId: employer.id } });
 
-        const allowedFields = ["firstName", "lastName", "salary", "email", "hiredAt"];
+        const allowedFields = ["firstName", "lastName", "salary", "email", "hiredAt", "birthDate"];
         const updates = Object.keys(req.body)
             .filter((key) => allowedFields.includes(key))
             .reduce((obj: any, key) => {

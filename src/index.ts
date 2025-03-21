@@ -24,7 +24,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: "http://localhost:3001",
+        origin: process.env.FRONTEND_URL,
         credentials: true,
     })
 );
@@ -33,13 +33,14 @@ app.use(express.json());
 app.use(cookieParser());
 // Login
 app.use("/api/auth", authRoutes);
+// Generos
+app.use("/api/genders", genderRoutes);
 
 app.use(authMiddleware);
 // Rutas
 app.use("/api/employers", employerRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/jobPositions", jobPositionRoutes);
-app.use("/api/genders", genderRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/users", userRoutes);

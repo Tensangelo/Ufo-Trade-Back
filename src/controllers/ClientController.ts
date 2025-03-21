@@ -117,13 +117,18 @@ export const updateClient = async (req: Request, res: Response, next: NextFuncti
             return;
         }
 
-        const users = await User.findAll({
+        const user = await User.findOne({
             where: {
                 clientId: client.id
             }
         });
 
-        const allowedFields = ["name", "phone", "address", "birthDate", "email"];
+        if (!user) {
+            res.status(404).json({ error: "Usuario no encontrado" });
+            return;
+        }
+
+        const allowedFields = ["name", "phone", "address", "birthDate", "email", "genderId"];
         const updates: Record<string, any> = {};
 
         Object.keys(req.body).forEach((key) => {
@@ -137,7 +142,14 @@ export const updateClient = async (req: Request, res: Response, next: NextFuncti
             return;
         }
 
-        if (updates.email) {
+        const emailChanged = updates.email && updates.email !== client.email;
+
+        if (emailChanged || updates.email === "") {
+            res.status(400).json({ error: "El correo electrónico no puede estar vacío" });
+            return;
+        }
+
+        if (emailChanged) {
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(updates.email)) {
                 res.status(400).json({ error: "Formato de email inválido" });
                 return;
@@ -166,25 +178,14 @@ export const updateClient = async (req: Request, res: Response, next: NextFuncti
         await client.update(updates);
 
         // Si se cambió el email, actualizarlo en Users
-        if (updates.email && users.length > 0) {
-            // Verificar si el nuevo email ya está en uso
-            const emailExists = await User.findOne({ where: { email: updates.email } });
-            if (emailExists) {
-                res.status(409).json({ error: "El nuevo email ya está en uso" });
-                return;
-            }
-
-            for (const user of users) {
-                if (updates.email !== user.email) {
-                    await user.update({ email: updates.email });
-                }
-            }
+        if (emailChanged) {
+            await user.update({ email: updates.email });
         }
 
         res.status(200).json({
             message: "Cliente actualizado exitosamente",
             client,
-            users,
+            user,
         });
 
     } catch (error) {

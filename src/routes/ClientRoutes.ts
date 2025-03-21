@@ -20,7 +20,7 @@ router.get("/", checkRole([ADMIN, MANAGER, SALES_PERSON]), getAllClients);
 // Search Clients
 router.get("/search", checkRole([ADMIN, MANAGER, SALES_PERSON]), searchClients);
 // Update
-router.put("/update/:id", checkRole([ADMIN, MANAGER, SALES_PERSON]), updateClient);
+router.put("/update/:id", checkRole(Object.values(Roles).filter((role) => typeof role === "number") as number[]), updateClient);
 
 
 export default router;
