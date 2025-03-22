@@ -1,31 +1,31 @@
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize(
-    process.env.DB_NAME as string,
-    process.env.DB_USER as string,
-    process.env.DB_PASSWORD as string,
-    {
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT) || 5432,
-        dialect: "postgres",
-        logging: false,
-    }
-);
+// const sequelize = new Sequelize(
+//     process.env.DB_NAME as string,
+//     process.env.DB_USER as string,
+//     process.env.DB_PASSWORD as string,
+//     {
+//         host: process.env.DB_HOST,
+//         port: Number(process.env.DB_PORT) || 5432,
+//         dialect: "postgres",
+//         logging: false,
+//     }
+// );
 
-// const dataBaseUrl = process.env.DATABASE_URL;
+const dataBaseUrl = process.env.DATABASE_URL;
 
-// if (!dataBaseUrl) {
-//     throw new Error("DATABASE_URL no está definida en el archivo .env");
-// }
+if (!dataBaseUrl) {
+    throw new Error("DATABASE_URL no está definida en el archivo .env");
+}
 
-// const sequelize = new Sequelize(dataBaseUrl, {
-//     dialect: "postgres",
-//     dialectOptions: {
-//         ssl: {
-//             require: true,
-//             rejectUnauthorized: false,
-//         },
-//     },
-// });
+const sequelize = new Sequelize(dataBaseUrl, {
+    dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
+        },
+    },
+});
 
 export default sequelize;
