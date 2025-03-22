@@ -24,7 +24,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: 'https://ufo-trade-front.onrender.com',
+        origin: process.env.FRONTEND_URL,
         credentials: true,
     })
 );
