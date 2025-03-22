@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 // Models
 import Client from '../../models/Client';
-import User from '@../../models/User';
+import User from '../../models/User';
 // Cookie
 const COOKIE_NAME = "auth_token";
 
