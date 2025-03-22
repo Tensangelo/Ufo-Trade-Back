@@ -5,7 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 // Conection db
-import sequelize from "@config/database";
+import sequelize from "./config/database";
 // Routes
 import employerRoutes from "@routes/EmployerRoutes";
 import productRoutes from "@routes/ProductRoutes";
