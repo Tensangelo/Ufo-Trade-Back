@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts --ignore-pattern dist/",
     "type-check": "tsc --noEmit",
     "build": "npm run lint && npm run type-check && tsc",
     "start": "node -r tsconfig-paths/register dist/index.js"

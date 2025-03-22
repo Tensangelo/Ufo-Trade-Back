@@ -16,6 +16,7 @@
             "@routes/*": ["routes/*"],
             "@middlewares/*": ["middlewares/*"],
             "@utils/*": ["utils/*"],
-        }
-    }
+        },
+    },
+    "exclude": ["node_modules", "dist"]
 }
