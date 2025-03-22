@@ -23,6 +23,7 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction): void =
         }
     } catch (error) {
         res.status(403).json({ message: "Token no válido" });
+        console.error(error);
     }
 };
 

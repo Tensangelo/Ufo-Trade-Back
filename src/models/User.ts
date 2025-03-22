@@ -15,7 +15,7 @@ class User extends Model {
     public rolId!: number;
     public createdAt!: Date;
     public updatedAt!: Date;
-    public isActive!: Boolean;
+    public isActive!: boolean;
 }
 
 User.init(

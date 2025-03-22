@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 
-const ErrorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ErrorHandler = (err: any, req: Request, res: Response) => {
     console.error(err);
 
     const statusCode = err.statusCode || 500;

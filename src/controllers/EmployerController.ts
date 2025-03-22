@@ -55,6 +55,7 @@ export const searchEmployers = async (req: Request, res: Response, next: NextFun
         const { firstName, lastName } = req.query;
         const { limit, page, offset } = getPaginationParams(req);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const filters: any = {};
 
         if (firstName) {
@@ -185,6 +186,7 @@ export const updateEmployer = async (req: Request, res: Response, next: NextFunc
         const allowedFields = ["firstName", "lastName", "salary", "email", "hiredAt", "birthDate"];
         const updates = Object.keys(req.body)
             .filter((key) => allowedFields.includes(key))
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .reduce((obj: any, key) => {
                 obj[key] = req.body[key];
                 return obj;

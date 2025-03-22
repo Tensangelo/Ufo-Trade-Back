@@ -4,7 +4,6 @@ import {
     searchClients,
     updateClient,
 } from "@controllers/ClientController";
-import authMiddleware from "@middlewares/auth/authMiddlewares";
 
 // Middleware
 import { checkRole } from "@middlewares/CheckRole";

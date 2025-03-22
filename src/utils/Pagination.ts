@@ -1,7 +1,7 @@
 import { Request } from "express";
 
 export const getPaginationParams = (req: Request, defaultLimit = 10) => {
-    let { limit, page } = req.query;
+    const { limit, page } = req.query;
 
     let parsedLimit = parseInt(limit as string) || defaultLimit;
     let parsedPage = parseInt(page as string) || 1;

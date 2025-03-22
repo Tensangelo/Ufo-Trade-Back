@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import bcrypt from "bcryptjs";
 import { Op } from "sequelize";
 // Models
 import Client from "@models/Client";
@@ -53,6 +52,7 @@ export const searchClients = async (req: Request, res: Response, next: NextFunct
         const { name } = req.query;
         const { limit, page, offset } = getPaginationParams(req);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const filters: any = {};
         if (name) {
             filters.name = { [Op.iLike]: `%${name}%` };
@@ -129,6 +129,7 @@ export const updateClient = async (req: Request, res: Response, next: NextFuncti
         }
 
         const allowedFields = ["name", "phone", "address", "birthDate", "email", "genderId"];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const updates: Record<string, any> = {};
 
         Object.keys(req.body).forEach((key) => {
