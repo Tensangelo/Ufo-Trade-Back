@@ -41,13 +41,13 @@ export const Login = async (req: Request, res: Response, next: NextFunction) => 
         const token = jwt.sign(
             { id: user.id, email: user.email, rolId: user.rolId },
             process.env.ACCESS_TOKEN_SECRET as string,
-            { expiresIn: "8h" }
+            { expiresIn: "2h" }
         );
 
         res.cookie(COOKIE_NAME, token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production", // Solo en producción
-            sameSite: true,
+            secure: process.env.NODE_ENV === "production" ? true : false,
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
             maxAge: 2 * 60 * 60 * 1000, // 2 horas
         });
 
