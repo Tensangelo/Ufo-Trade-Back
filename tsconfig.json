@@ -8,15 +8,15 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "dist",
         "baseUrl": "./src",
-        "paths": {
-            "@config/*": ["config/*"],
-            "@constants/*": ["constants/*"],
-            "@models/*": ["models/*"],
-            "@controllers/*": ["controllers/*"],
-            "@routes/*": ["routes/*"],
-            "@middlewares/*": ["middlewares/*"],
-            "@utils/*": ["utils/*"],
-        },
+        // "paths": {
+        //     "@config/*": ["config/*"],
+        //     "@constants/*": ["constants/*"],
+        //     "@models/*": ["models/*"],
+        //     "@controllers/*": ["controllers/*"],
+        //     "@routes/*": ["routes/*"],
+        //     "@middlewares/*": ["middlewares/*"],
+        //     "@utils/*": ["utils/*"],
+        // },
     },
     "exclude": ["node_modules", "dist"]
 }

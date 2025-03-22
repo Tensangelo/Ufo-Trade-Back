@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 import bcrypt from "bcryptjs";
 // Models
-import User from "@models/User";
-import Employer from "@models/Employer";
-import Client from "@models/Client";
-import JobPosition from "@models/JobPosition";
+import User from "../models/User";
+import Employer from "../models/Employer";
+import Client from "../models/Client";
+import JobPosition from "../models/JobPosition";
 // Utils
-import { getPaginationParams } from "@utils/Pagination";
+import { getPaginationParams } from "../utils/Pagination";
 
 export const getAllUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {

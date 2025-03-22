@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { getAllJobPositions } from '@controllers/JobPositionController';
+import { getAllJobPositions } from '../controllers/JobPositionController';
 // Middleware
-import { checkRole } from "@middlewares/CheckRole";
+import { checkRole } from "../middlewares/CheckRole";
 // Const
-import { Roles } from "@constants/Role";
+import { Roles } from "../constants/Role";
 
 const router = Router();
 

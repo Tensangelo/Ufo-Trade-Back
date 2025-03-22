@@ -5,11 +5,11 @@ import {
     updateCategory,
     deleteCategory,
     getProductsByCategory
-} from "@controllers/CategoryController";
+} from "../controllers/CategoryController";
 // Middleware
-import { checkRole } from "@middlewares/CheckRole";
+import { checkRole } from "../middlewares/CheckRole";
 // Const
-import { Roles } from "@constants/Role";
+import { Roles } from "../constants/Role";
 
 const router = Router();
 

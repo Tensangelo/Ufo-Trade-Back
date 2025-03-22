@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import Gender from "@models/Gender";
+import Gender from "../models/Gender";
 
 export const getAllGender = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {

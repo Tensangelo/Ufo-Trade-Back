@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 // Models
-import Category from "@models/Category";
-import Product from "@models/Product";
+import Category from "../models/Category";
+import Product from "../models/Product";
 
 // Get
 export const getAllCategories = async (req: Request, res: Response, next: NextFunction): Promise<void> => {

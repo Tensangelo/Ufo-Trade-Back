@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 // Models
-import Product from "@models/Product";
-import Category from "@models/Category";
+import Product from "../models/Product";
+import Category from "../models/Category";
 // Utils
-import { buildFilters } from "@utils/FiltersProducts";
-import { getPaginationParams } from "@utils/Pagination";
+import { buildFilters } from "../utils/FiltersProducts";
+import { getPaginationParams } from "../utils/Pagination";
 
 // Gets
 export const getAllProduct = async (req: Request, res: Response, next: NextFunction) => {

@@ -3,12 +3,12 @@ import {
     getAllClients,
     searchClients,
     updateClient,
-} from "@controllers/ClientController";
+} from "../controllers/ClientController";
 
 // Middleware
-import { checkRole } from "@middlewares/CheckRole";
+import { checkRole } from "../middlewares/CheckRole";
 // Const
-import { Roles } from "@constants/Role";
+import { Roles } from "../constants/Role";
 
 const router = Router();
 

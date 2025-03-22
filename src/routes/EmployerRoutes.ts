@@ -4,11 +4,11 @@ import {
     createEmployer,
     searchEmployers,
     updateEmployer,
-} from "@controllers/EmployerController";
+} from "../controllers/EmployerController";
 // Middleware
-import { checkRole } from "@middlewares/CheckRole";
+import { checkRole } from "../middlewares/CheckRole";
 // Const
-import { Roles } from "@constants/Role";
+import { Roles } from "../constants/Role";
 
 const router = Router();
 

@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import { Op } from "sequelize";
 // Models
-import Client from "@models/Client";
-import User from "@models/User";
+import Client from "../models/Client";
+import User from "../models/User";
 // Utils
-import { getPaginationParams } from "@utils/Pagination";
+import { getPaginationParams } from "../utils/Pagination";
 
 export const getAllClients = async (req: Request, res: Response, next: NextFunction) => {
     try {

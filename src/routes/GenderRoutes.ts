@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllGender } from "@controllers/GenderController";
+import { getAllGender } from "../controllers/GenderController";
 
 const router = Router();
 

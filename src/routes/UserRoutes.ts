@@ -4,11 +4,11 @@ import {
     getUserProfile,
     updateUserStatus,
     updatePassword
-} from '@controllers/UserController';
+} from '../controllers/UserController';
 // Middleware
-import { checkRole } from "@middlewares/CheckRole";
+import { checkRole } from "../middlewares/CheckRole";
 // Const
-import { Roles } from "@constants/Role";
+import { Roles } from "../constants/Role";
 
 const router = Router();
 

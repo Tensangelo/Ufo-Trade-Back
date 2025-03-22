@@ -2,10 +2,10 @@ import { NextFunction, Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import { Op } from "sequelize";
 // Models
-import Employer from "@models/Employer";
-import User from "@models/User";
+import Employer from "../models/Employer";
+import User from "../models/User";
 // Utils
-import { getPaginationParams } from "@utils/Pagination";
+import { getPaginationParams } from "../utils/Pagination";
 
 // Gets
 export const getAllEmployers = async (req: Request, res: Response, next: NextFunction) => {
