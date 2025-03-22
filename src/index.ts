@@ -7,18 +7,18 @@ import cookieParser from 'cookie-parser';
 // Conection db
 import sequelize from "./config/database";
 // Routes
-import employerRoutes from "@routes/EmployerRoutes";
-import productRoutes from "@routes/ProductRoutes";
-import jobPositionRoutes from "@routes/JobPositionRoutes";
-import genderRoutes from "@routes/GenderRoutes";
-import categoryRoutes from "@routes/CategoryRoutes";
-import clientRoutes from "@routes/ClientRoutes";
-import userRoutes from "@routes/UserRoutes";
+import employerRoutes from "./routes/EmployerRoutes";
+import productRoutes from "./routes/ProductRoutes";
+import jobPositionRoutes from "./routes/JobPositionRoutes";
+import genderRoutes from "./routes/GenderRoutes";
+import categoryRoutes from "./routes/CategoryRoutes";
+import clientRoutes from "./routes/ClientRoutes";
+import userRoutes from "./routes/UserRoutes";
 // Login
-import authRoutes from '@routes/auth/authRoutes';
+import authRoutes from './routes/auth/authRoutes';
 // Middlewares
-import ErrorHandler from "@middlewares/ErrorHandler";
-import authMiddleware from "@middlewares/auth/authMiddlewares";
+import ErrorHandler from "./middlewares/ErrorHandler";
+import authMiddleware from "./middlewares/auth/authMiddlewares";
 
 const app = express();
 
