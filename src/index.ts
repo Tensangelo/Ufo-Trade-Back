@@ -21,6 +21,7 @@ import ErrorHandler from "./middlewares/ErrorHandler";
 import authMiddleware from "./middlewares/auth/authMiddlewares";
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(
     cors({
