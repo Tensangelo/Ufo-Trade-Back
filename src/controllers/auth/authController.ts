@@ -120,6 +120,18 @@ export const Register = async (req: Request, res: Response, next: NextFunction):
 };
 
 export const Logout = (req: Request, res: Response) => {
-    res.clearCookie(COOKIE_NAME);
-    res.json({ message: "Sesión cerrada correctamente" });
+    if (!req.cookies[COOKIE_NAME]) {
+        res.status(400).json({ message: "No hay sesión activa" });
+        return;
+    }
+
+    res.clearCookie(COOKIE_NAME, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/"  // Asegurar que se borre correctamente en todas las rutas
+    });
+
+    res.status(200).json({ message: "Sesión cerrada correctamente" });
+    return;
 };
