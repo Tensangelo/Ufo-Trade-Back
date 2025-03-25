@@ -7,6 +7,7 @@ import {
 
 // Middleware
 import { checkRole } from "../middlewares/CheckRole";
+import authMiddleware from "../middlewares/auth/authMiddlewares";
 // Const
 import { Roles } from "../constants/Role";
 
@@ -15,11 +16,11 @@ const router = Router();
 const { ADMIN, MANAGER, SALES_PERSON } = Roles;
 
 // Gets
-router.get("/", checkRole([ADMIN, MANAGER, SALES_PERSON]), getAllClients);
+router.get("/", authMiddleware, checkRole([ADMIN, MANAGER, SALES_PERSON]), getAllClients);
 // Search Clients
-router.get("/search", checkRole([ADMIN, MANAGER, SALES_PERSON]), searchClients);
+router.get("/search", authMiddleware, checkRole([ADMIN, MANAGER, SALES_PERSON]), searchClients);
 // Update
-router.put("/update/:id", checkRole(Object.values(Roles).filter((role) => typeof role === "number") as number[]), updateClient);
+router.put("/update/:id", authMiddleware, checkRole(Object.values(Roles).filter((role) => typeof role === "number") as number[]), updateClient);
 
 
 export default router;

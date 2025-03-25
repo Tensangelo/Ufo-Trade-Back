@@ -22,6 +22,6 @@ router.post("/register", async (req, res, next) => {
     }
 });
 
-router.post("/logout", Logout);
+router.post("/logout", authMiddleware, Logout);
 
 export default router;

@@ -8,6 +8,7 @@ import {
 } from "../controllers/CategoryController";
 // Middleware
 import { checkRole } from "../middlewares/CheckRole";
+import authMiddleware from "../middlewares/auth/authMiddlewares";
 // Const
 import { Roles } from "../constants/Role";
 
@@ -16,15 +17,15 @@ const router = Router();
 const { ADMIN, MANAGER } = Roles;
 
 // Get
-router.get("/", checkRole(Object.values(Roles).filter((role) => typeof role === "number")), getAllCategories);
+router.get("/", authMiddleware, checkRole(Object.values(Roles).filter((role) => typeof role === "number")), getAllCategories);
 // Post
-router.post("/create", checkRole([ADMIN, MANAGER]), createCategory);
+router.post("/create", authMiddleware, checkRole([ADMIN, MANAGER]), createCategory);
 // Update
-router.put("/update/:id", checkRole([ADMIN, MANAGER]), updateCategory);
+router.put("/update/:id", authMiddleware, checkRole([ADMIN, MANAGER]), updateCategory);
 // Delete
-router.delete("/disabled/:id", checkRole([ADMIN, MANAGER]), deleteCategory);
+router.delete("/disabled/:id", authMiddleware, checkRole([ADMIN, MANAGER]), deleteCategory);
 // Gets especials
-router.get("/:categoryId/products", checkRole(Object.values(Roles).filter((role) => typeof role === "number")), getProductsByCategory);
+router.get("/:categoryId/products", authMiddleware, checkRole(Object.values(Roles).filter((role) => typeof role === "number")), getProductsByCategory);
 
 
 export default router;
