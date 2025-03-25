@@ -128,8 +128,8 @@ export const Logout = (req: Request, res: Response) => {
     res.clearCookie(COOKIE_NAME, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        path: "/"  // Asegurar que se borre correctamente en todas las rutas
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        path: "/"
     });
 
     res.status(200).json({ message: "Sesión cerrada correctamente" });
