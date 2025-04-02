@@ -183,7 +183,7 @@ export const updateEmployer = async (req: Request, res: Response, next: NextFunc
 
         const users = await User.findAll({ where: { employerId: employer.id } });
 
-        const allowedFields = ["firstName", "lastName", "salary", "email", "hiredAt", "birthDate"];
+        const allowedFields = ["firstName", "lastName", "salary", "email", "phone", "hiredAt", "birthDate", "genderId"];
         const updates = Object.keys(req.body)
             .filter((key) => allowedFields.includes(key))
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
